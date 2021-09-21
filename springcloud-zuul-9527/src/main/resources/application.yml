@@ -1,0 +1,24 @@
+server:
+  port: 9527
+
+
+spring:
+  application:
+    name: springcloud-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://zty1.com:7001/eureka/,http://zty2.com:7002/eureka,http://zty3.com:7003/eureka
+  instance:
+    instance-id: zuul9527.com
+    prefer-ip-address: true
+  #info配置
+info:
+  app.name: zty-springcloud
+  company.name: blog.study.zty
+zuul:
+  routes:
+    mydept.serviceId: springcloud-provider-dept
+    mydept.path: /mydept/**
+  ignored-services: "*"  #不能再使用这个路径访问,,*表示隐藏全部微服务
+  prefix: /zty #设置公共的前缀

@@ -1,0 +1,30 @@
+server:
+  port: 8001
+
+#mybatis配置
+mybatis:
+  type-aliases-package: com.zty.springcloud.pojo
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+#spring配置
+spring:
+  application:
+    name: springcloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource #数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+#Eureka配置，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://zty1.com:7001/eureka/,http://zty2.com:7002/eureka,http://zty3.com:7003/eureka
+  instance:
+    instance-id: springcloud-provider-dept8001  #修改Eureka上面的默认描述STATUS信息！
+    prefer-ip-address: true #true  可以显示服务的ip地址
+#info配置
+info:
+  app.name: zty-springcloud
+  company.name: bodo.study.zty

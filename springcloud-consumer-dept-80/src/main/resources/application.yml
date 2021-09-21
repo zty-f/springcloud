@@ -1,0 +1,13 @@
+server:
+  port: 8081
+#因为80端口被系统的服务占用，所以改成8081
+
+
+
+#Eureka配置
+eureka:
+  client:
+    register-with-eureka: false  #不向Eureka注册自己
+    service-url:
+      defaultZone: http://zty1.com:7001/eureka/,http://zty3.com:7003/eureka,http://zty2.com:7002/eureka
+

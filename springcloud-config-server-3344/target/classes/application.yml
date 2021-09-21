@@ -1,0 +1,16 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: springcloud-config-server
+    #连接远程仓库
+  cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          username: zty-f
+          password: 200214
+          uri: https://github.com/zty-f/springcloud-config.git #github仓库地址
+
+#通过config-server可以连接到git，访问其中的资源以及配置

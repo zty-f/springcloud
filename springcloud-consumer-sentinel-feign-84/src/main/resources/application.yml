@@ -1,0 +1,25 @@
+server:
+  port: 84
+#因为80端口被系统的服务占用，所以改成8081
+
+#开启服务降级
+feign:
+  sentinel:
+    enabled: true
+#spring配置
+spring:
+  application:
+    name: nacos-consumer-feign
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        # 配置Sentinel  dashboard地址
+        dashboard: localhost:8080
+        # 默认8719端口，假如会被占用会自动从8719开始依次加一扫描，直至找到未被占用的端口
+        port: 8719
+# 消费者要去访问的微服务器名称（注册成功进nacos的微服务提供者）
+service-url:
+  nacos-user-service: http://nacos-provider-dept

@@ -1,0 +1,7 @@
+server:
+  port: 9001
+
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "localhost" #显示监控页面的关键

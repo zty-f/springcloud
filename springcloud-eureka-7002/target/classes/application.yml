@@ -1,0 +1,12 @@
+server:
+  port: 7002
+
+#Eureka配置
+eureka:
+  instance:
+    hostname: zty2.com #Eureka服务端的实例名字
+  client:
+    register-with-eureka: false #表示是否向eureka注册中心注册自己
+    fetch-registry: false #如果这个为false，则表示这个为注册中心
+    service-url: #监控界面~
+      defaultZone: http://zty1.com:7001/eureka,http://zty3.com:7003/eureka
